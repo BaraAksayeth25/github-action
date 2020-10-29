@@ -6,12 +6,11 @@ const app = require('../server');
 describe('Test API', () => {
   it('Middleware Greeting ', () => {
     const result = greeting('bara');
-    expect(result).to.be.eq('Hello wahyu dan dika, Welcome to My Job');
+    expect(result).to.be.eq('Hello bara, Welcome to My Job');
   });
 
-  it('Request user', (done) => {
-    request(app)
-      .get('/user/dadang')
-      .expect('Hello Dadang, Welcome to My Job', done);
+  it('Request user', async () => {
+    const response = await request(app).get('/user/dadang');
+    expect(response.body.message).to.be.eq('Hello dadang, Welcome to My Job');
   });
 });
