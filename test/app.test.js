@@ -1,7 +1,7 @@
 const request = require('supertest');
 const { expect } = require('chai');
 const { greeting } = require('../user');
-const app = require('../index');
+const app = require('../server');
 
 describe('Test API', () => {
   it('Middleware Greeting ', () => {
